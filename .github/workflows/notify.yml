@@ -1,19 +1,5 @@
 name: Notify Slack
-on:
-  push:
-    branches:
-      - develop
-      - master
-    paths:
-      - 'app/assets/javascripts/**'
-      - '.babelrc'
-      - '.eslintrc.js'
-      - '.node-version'
-      - 'package.json'
-      - 'tsconfig.json'
-      - 'webpack.config.js'
-      - 'test/**'
-      - './github/**'
+on: push
 jobs:
   notify:
     name: Slack Notification
