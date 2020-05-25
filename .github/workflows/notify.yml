@@ -2,17 +2,22 @@ name: Notify Slack
 on:
   push:
     branches:
-      - develop
       - master
     paths:
       - 'README.md'
 jobs:
   notify:
-    name: Slack Notification
+    # https://github.community/t5/GitHub-Actions/Triggering-workflow-on-merge/td-p/40930
+    # https://qiita.com/osakiy/items/df80db383ce33b82c797
+    # https://developer.github.com/webhooks/event-payloads/
+    # https://developer.github.com/webhooks/event-payloads/#pull_request
+    # https://github.com/marketplace/actions/post-slack-message
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2.0.2
+        uses: pullreminders/slack-action@master
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          args: '{\"channel\":\"CT66WM0R4\",\"text\":\"Hello world\"}'
