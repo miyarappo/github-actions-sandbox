@@ -12,7 +12,7 @@ jobs:
     # https://developer.github.com/webhooks/event-payloads/
     # https://developer.github.com/webhooks/event-payloads/#pull_request
     # https://github.com/marketplace/actions/post-slack-message
-    if: github.event.pull_request.merged == true
+    # if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Slack Notification
