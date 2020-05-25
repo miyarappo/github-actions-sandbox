@@ -17,6 +17,6 @@ jobs:
       - name: Slack Notification
         uses: pullreminders/slack-action@master
         env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
           args: "{\"channel\":\"CT66WM0R4\",\"text\":\"Hello world\"}"
